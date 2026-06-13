@@ -17,12 +17,12 @@ type UploadResponse struct {
 
 func main() {
 	app := fiber.New()
-	frontendURL := os.Getenv("FRONTEND_URL")
+frontendURL := os.Getenv("FRONTEND_URL")
 
-	app.Use(cors.New(cors.Config{
-    AllowOrigins: os.Getenv("FRONTEND_URL"),
-    AllowHeaders: "Origin, Content-Type, Accept",
-    AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
+app.Use(cors.New(cors.Config{
+	AllowOrigins: frontendURL,
+	AllowHeaders: "Origin, Content-Type, Accept",
+	AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
 }))
 
 
