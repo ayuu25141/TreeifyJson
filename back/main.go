@@ -19,10 +19,11 @@ func main() {
 	app := fiber.New()
 	frontendURL := os.Getenv("FRONTEND_URL")
 
-		app.Use(cors.New(cors.Config{
-		AllowOrigins: frontendURL,
-		AllowHeaders: "Origin, Content-Type, Accept",
-	}))
+	app.Use(cors.New(cors.Config{
+    AllowOrigins: os.Getenv("FRONTEND_URL"),
+    AllowHeaders: "Origin, Content-Type, Accept",
+    AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
+}))
 
 
 	app.Get("/", func(c *fiber.Ctx) error {
